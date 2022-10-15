@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.mini.quiz.fragments.QuizFragment"
+        android:label="fragment_quiz"
+        tools:layout="@layout/fragment_quiz" >
+        <action
+            android:id="@+id/action_quizFragment_to_quizOverFragment"
+            app:destination="@id/quizOverFragment"
+            app:popUpTo="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizOverFragment"
+        android:name="com.mini.quiz.fragments.QuizOverFragment"
+        android:label="fragment_quiz_over"
+        tools:layout="@layout/fragment_quiz_over" >
+        <argument
+            android:name="Score"
+            app:argType="integer" />
+        <argument
+            android:name="TotalQuestions"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.mini.quiz.fragments.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_createQuizFragment"
+            app:destination="@id/createQuizFragment"
+            app:popUpTo="@id/startFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_joinQuizFragment"
+            app:destination="@id/joinQuizFragment"
+            app:popUpTo="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createQuizFragment"
+        android:name="com.mini.quiz.fragments.CreateQuizFragment"
+        android:label="fragment_create_quiz"
+        tools:layout="@layout/fragment_create_quiz" >
+        <action
+            android:id="@+id/action_createQuizFragment_to_startFragment"
+            app:destination="@id/startFragment"
+            app:popUpTo="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/joinQuizFragment"
+        android:name="com.mini.quiz.fragments.JoinQuizFragment"
+        android:label="fragment_play"
+        tools:layout="@layout/fragment_join_quiz" >
+        <action
+            android:id="@+id/action_joinQuizFragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.CreateQuizFragment">
+
+    <data>
+
+        <variable
+            name="dataPart"
+            type="com.mini.quiz.fragments.CreateQuizFragment" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <EditText
+                android:id="@+id/etv_Question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:hint="Question ?"
+                android:text="@{dataPart.allQuestions[dataPart.currentIndex].Q}"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_questionNumber" />
+
+            <EditText
+                android:id="@+id/etv_option1"
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:background="@color/green"
+                android:hint="Correct answer"
+                android:minHeight="48dp"
+                android:text="@{dataPart.allQuestions[dataPart.currentIndex].op1}"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@+id/etv_Question"
+                app:layout_constraintStart_toStartOf="@+id/etv_Question"
+                app:layout_constraintTop_toBottomOf="@+id/etv_Question" />
+
+            <EditText
+                android:id="@+id/etv_option2"
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Other option"
+                android:text="@{dataPart.allQuestions[dataPart.currentIndex].op2}"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@+id/etv_option1"
+                app:layout_constraintStart_toStartOf="@+id/etv_option1"
+                app:layout_constraintTop_toBottomOf="@+id/etv_option1" />
+
+            <EditText
+                android:id="@+id/etv_option3"
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@{dataPart.allQuestions[dataPart.currentIndex].op3}"
+                android:hint="Other option"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@+id/etv_option2"
+                app:layout_constraintStart_toStartOf="@+id/etv_option2"
+                app:layout_constraintTop_toBottomOf="@+id/etv_option2" />
+
+
+            <EditText
+                android:id="@+id/etv_option4"
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Other option"
+                android:text="@{dataPart.allQuestions[dataPart.currentIndex].op4}"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@+id/etv_option3"
+                app:layout_constraintStart_toStartOf="@+id/etv_option3"
+                app:layout_constraintTop_toBottomOf="@+id/etv_option3" />
+            <TextView
+                android:id="@+id/tv_questionNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="#5E1E1E"
+                android:text="@{dataPart.strCurrentIndex}"
+                android:textColorHighlight="@color/white"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1" />
+
+            <EditText
+                android:id="@+id/etv_uploadGameCode"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="16dp"
+                android:hint="Unique Code"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_uploadQuiz"
+                app:layout_constraintEnd_toStartOf="@+id/btn_uploadQuiz"
+                app:layout_constraintStart_toStartOf="@+id/etv_option4"
+                app:layout_constraintTop_toTopOf="@+id/btn_uploadQuiz" />
+
+            <Button
+                android:id="@+id/btn_uploadQuiz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+                android:text="@string/upload"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/etv_option4"
+                app:layout_constraintTop_toBottomOf="@+id/etv_option4"
+                app:layout_constraintVertical_bias="1.0" />
+
+
+            <ImageButton
+                android:id="@+id/btn_previous"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_left_24"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_questionNumber"
+                app:layout_constraintStart_toStartOf="@+id/etv_Question"
+                app:layout_constraintTop_toTopOf="@+id/tv_questionNumber" />
+
+            <ImageButton
+                android:id="@+id/btn_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_right_24"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_questionNumber"
+                app:layout_constraintEnd_toEndOf="@+id/etv_Question"
+                app:layout_constraintTop_toTopOf="@+id/tv_questionNumber"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/tv_uploading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Uploading..."
+                android:visibility="invisible"
+                android:textSize="24sp"
+                android:paddingBottom="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/etv_uploadGameCode"
+                app:layout_constraintEnd_toEndOf="@+id/btn_uploadQuiz"
+                app:layout_constraintStart_toStartOf="@+id/etv_uploadGameCode" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>

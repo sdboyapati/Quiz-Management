@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.QuizFragment">
+
+    <data>
+
+        <variable
+            name="Quiz"
+            type="com.mini.quiz.fragments.QuizFragment" />
+    </data>
+    <!-- TODO: Update blank fragment layout -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_Question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="176dp"
+            android:layout_marginEnd="16dp"
+            android:text="@{Quiz.currentQuestion}"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Bash shell is developed at?" />
+
+        <RadioGroup
+            android:id="@+id/rg_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_Question">
+
+            <RadioButton
+                android:id="@+id/tv_option1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{Quiz.currentOptions[0]}"
+                android:textSize="24sp"
+                tools:text="Bell Labs" />
+
+            <RadioButton
+                android:id="@+id/tv_option2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{Quiz.currentOptions[1]}"
+                android:textSize="24sp"
+                tools:text="L &amp; T Labs" />
+
+            <RadioButton
+                android:id="@+id/tv_option3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{Quiz.currentOptions[2]}"
+                android:textSize="24sp"
+                tools:text="Dell Labs" />
+
+            <RadioButton
+                android:id="@+id/tv_option4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{Quiz.currentOptions[3]}"
+                android:textSize="24sp"
+                tools:text="AT &amp; T Labs" />
+
+        </RadioGroup>
+
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rg_options" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
